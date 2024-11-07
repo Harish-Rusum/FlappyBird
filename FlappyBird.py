@@ -1,5 +1,5 @@
 import pygame
-import sys
+
 import random
 
 pygame.init()
@@ -134,10 +134,10 @@ def menu():
     while running:
         for event in pygame.event.get():
             if event.type == pygame.QUIT:
-                sys.exit()
+                running = False
             elif event.type == pygame.KEYDOWN:
                 if event.key == pygame.K_ESCAPE:
-                    sys.exit()
+                    running = False
                 else:
                     running = False
             if event.type == pygame.MOUSEBUTTONDOWN:
@@ -175,10 +175,10 @@ def main():
         # Game quitting
         for event in pygame.event.get():
             if event.type == pygame.QUIT:
-                sys.exit()
+                running = False
             elif event.type == pygame.KEYDOWN:
                 if event.key == pygame.K_ESCAPE:
-                    sys.exit()
+                    running = False
                 # Handling bird jumping
                 if event.key == pygame.K_SPACE or event.key == pygame.K_w:
                     bird.jump()
@@ -254,10 +254,10 @@ def gOver(score, scoreDict):
     while running:
         for event in pygame.event.get():
             if event.type == pygame.QUIT:
-                sys.exit()
+                running = False
             elif event.type == pygame.KEYDOWN:
                 if event.key == pygame.K_ESCAPE:
-                    sys.exit()
+                    running = False
                 if event.key == pygame.K_r:
                     return "Redo"
         screen.blit(bgImg, (0, -200))
@@ -282,6 +282,3 @@ def game():
 
 
 game()
-# Exiting game
-pygame.quit()
-sys.exit()
